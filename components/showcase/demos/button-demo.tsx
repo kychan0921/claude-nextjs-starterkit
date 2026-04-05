@@ -1,3 +1,4 @@
+import { Search, Star, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 /**
@@ -34,12 +35,14 @@ export function ButtonDemo() {
       <div>
         <h3 className="text-lg font-semibold mb-4">Icon Buttons</h3>
         <div className="flex flex-wrap gap-3">
-          <Button size="icon">🔍</Button>
+          <Button size="icon">
+            <Search className="h-4 w-4" />
+          </Button>
           <Button variant="outline" size="icon">
-            ⭐
+            <Star className="h-4 w-4" />
           </Button>
           <Button variant="ghost" size="icon">
-            ❤️
+            <Heart className="h-4 w-4" />
           </Button>
         </div>
       </div>

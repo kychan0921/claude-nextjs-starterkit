@@ -7,9 +7,11 @@ import { componentRegistry } from '@/lib/component-registry'
  * 컴포넌트 쇼케이스 목록 페이지
  */
 export default function ShowcasePage() {
-  // 카테고리별로 그룹화
-  const categories = Array.from(
-    new Set(componentRegistry.map((item) => item.category))
+  // 카테고리 순서 정의
+  const CATEGORY_ORDER = ['Inputs', 'Display', 'Feedback', 'Navigation', 'Data'] as const
+  // 카테고리별로 그룹화 (명시적 순서 유지)
+  const categories = CATEGORY_ORDER.filter((cat) =>
+    componentRegistry.some((item) => item.category === cat)
   )
 
   return (

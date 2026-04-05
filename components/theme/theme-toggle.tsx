@@ -1,23 +1,19 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
+import { useIsClient } from 'usehooks-ts'
 import { Button } from '@/components/ui/button'
 import { useTheme } from './theme-provider'
 
 /**
  * 다크모드 토글 버튼
- * isMounted 패턴으로 SSR hydration mismatch 방지
+ * useIsClient로 SSR hydration mismatch 방지
  */
 export function ThemeToggle() {
   const { isDarkMode, toggle } = useTheme()
-  const [isMounted, setIsMounted] = useState(false)
+  const isClient = useIsClient()
 
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
-  if (!isMounted) {
+  if (!isClient) {
     return <Button variant="ghost" size="icon" disabled />
   }
 

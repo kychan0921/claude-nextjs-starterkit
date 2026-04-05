@@ -49,7 +49,7 @@ export function HeaderNav({ navLinks }: HeaderNavProps) {
 
       {/* 모바일 드롭다운 메뉴 */}
       {isMenuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-background border-b border-border p-4 md:hidden">
+        <div className="absolute top-16 left-0 right-0 z-50 bg-background border-b border-border p-4 md:hidden">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link

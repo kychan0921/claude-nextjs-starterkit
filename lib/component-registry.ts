@@ -8,7 +8,6 @@ import {
   Image as ImageIcon,
   AlertCircle,
   MessageCircle,
-  Settings,
   ChevronDown,
   LayoutDashboard,
   Table as TableIcon,

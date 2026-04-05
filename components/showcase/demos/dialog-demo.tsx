@@ -11,6 +11,8 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 /**
  * Dialog 컴포넌트 예제
@@ -55,24 +57,24 @@ export function DialogDemo() {
             <DialogHeader>
               <DialogTitle>Edit Profile</DialogTitle>
               <DialogDescription>
-                Make changes to your profile here. Click save when you're done.
+                Make changes to your profile here. Click save when you&apos;re done.
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
-              <div>
-                <label className="text-sm font-medium">Name</label>
-                <input
+              <div className="space-y-2">
+                <Label htmlFor="profile-name">Name</Label>
+                <Input
+                  id="profile-name"
                   type="text"
                   placeholder="Your name"
-                  className="w-full border rounded px-3 py-2 mt-1"
                 />
               </div>
-              <div>
-                <label className="text-sm font-medium">Email</label>
-                <input
+              <div className="space-y-2">
+                <Label htmlFor="profile-email">Email</Label>
+                <Input
+                  id="profile-email"
                   type="email"
                   placeholder="your@email.com"
-                  className="w-full border rounded px-3 py-2 mt-1"
                 />
               </div>
             </div>

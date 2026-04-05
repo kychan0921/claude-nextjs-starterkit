@@ -116,53 +116,49 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
         </Card>
 
         {/* 네비게이션 */}
-        <div className="mt-12 flex items-center justify-between border-t pt-8">
-          {/* 이전 컴포넌트 */}
-          {(() => {
-            const currentIndex = componentRegistry.findIndex(
-              (item) => item.slug === slug
-            )
-            const prevComponent =
-              currentIndex > 0 ? componentRegistry[currentIndex - 1] : null
+        {(() => {
+          const currentIndex = componentRegistry.findIndex(
+            (item) => item.slug === slug
+          )
+          const prevComponent =
+            currentIndex > 0 ? componentRegistry[currentIndex - 1] : null
+          const nextComponent =
+            currentIndex < componentRegistry.length - 1
+              ? componentRegistry[currentIndex + 1]
+              : null
 
-            return prevComponent ? (
-              <Link
-                href={`/showcase/${prevComponent.slug}`}
-                className="group"
-              >
-                <Button variant="outline" className="gap-2">
-                  ← {prevComponent.name}
-                </Button>
-              </Link>
-            ) : (
-              <div />
-            )
-          })()}
+          return (
+            <div className="mt-12 flex items-center justify-between border-t pt-8">
+              {/* 이전 컴포넌트 */}
+              {prevComponent ? (
+                <Link
+                  href={`/showcase/${prevComponent.slug}`}
+                  className="group"
+                >
+                  <Button variant="outline" className="gap-2">
+                    ← {prevComponent.name}
+                  </Button>
+                </Link>
+              ) : (
+                <div />
+              )}
 
-          {/* 다음 컴포넌트 */}
-          {(() => {
-            const currentIndex = componentRegistry.findIndex(
-              (item) => item.slug === slug
-            )
-            const nextComponent =
-              currentIndex < componentRegistry.length - 1
-                ? componentRegistry[currentIndex + 1]
-                : null
-
-            return nextComponent ? (
-              <Link
-                href={`/showcase/${nextComponent.slug}`}
-                className="group"
-              >
-                <Button variant="outline" className="gap-2">
-                  {nextComponent.name} →
-                </Button>
-              </Link>
-            ) : (
-              <div />
-            )
-          })()}
-        </div>
+              {/* 다음 컴포넌트 */}
+              {nextComponent ? (
+                <Link
+                  href={`/showcase/${nextComponent.slug}`}
+                  className="group"
+                >
+                  <Button variant="outline" className="gap-2">
+                    {nextComponent.name} →
+                  </Button>
+                </Link>
+              ) : (
+                <div />
+              )}
+            </div>
+          )
+        })()}
       </Container>
     </div>
   )

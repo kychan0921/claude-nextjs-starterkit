@@ -83,7 +83,7 @@ export function Footer() {
         {/* 저작권 */}
         <div className="border-t border-border/40 pt-8">
           <p className="text-sm text-muted-foreground text-center">
-            © 2024 Starter Kit. All rights reserved.
+            © {new Date().getFullYear()} Starter Kit. All rights reserved.
           </p>
         </div>
       </Container>

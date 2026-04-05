@@ -21,7 +21,7 @@ export function CheckboxDemo() {
       <div>
         <h3 className="text-lg font-semibold mb-4">Basic Checkbox</h3>
         <div className="flex items-center gap-2">
-          <Checkbox id="basic" checked={checked} onCheckedChange={setChecked} />
+          <Checkbox id="basic" checked={checked} onCheckedChange={(val) => setChecked(val as boolean)} />
           <Label htmlFor="basic">Accept terms and conditions</Label>
         </div>
         <p className="text-sm text-muted-foreground mt-2">
